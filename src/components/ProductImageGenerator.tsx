@@ -101,8 +101,6 @@ export default function ProductImageGenerator({
       return;
     }
 
-    const message = `Check out this ${productData.name} for ${productData.currency} ${productData.price}!\n\n${productData.description}\n\nContact me to order!`;
-
     // Try Web Share API first (works on mobile)
     if (navigator.share) {
       try {
@@ -118,8 +116,6 @@ export default function ProductImageGenerator({
         );
 
         await navigator.share({
-          title: productData.name,
-          text: message,
           files: [file],
         });
         return;
@@ -128,19 +124,16 @@ export default function ProductImageGenerator({
       }
     }
 
-    // Fallback: Download image and open WhatsApp (desktop/unsupported browsers)
+    // For desktop, download the image
     const link = document.createElement("a");
-    link.download = `${productData.name.replace(/\s+/g, "_")}_product_tag.png`;
     link.href = generatedImage;
+    link.download = `${productData.name.replace(/\s+/g, "_")}_product_tag.png`;
     link.click();
-
+    
+    // Open WhatsApp web
     setTimeout(() => {
-      const whatsappUrl = `https://wa.me/?text=${encodeURIComponent(message)}`;
-      window.open(whatsappUrl, "_blank");
-      alert(
-        "Image downloaded! Please attach the downloaded image to your WhatsApp message."
-      );
-    }, 500);
+      window.open('https://web.whatsapp.com', '_blank');
+    }, 100);
   };
 
   const shareToInstagram = () => {
@@ -189,14 +182,14 @@ export default function ProductImageGenerator({
                       <Download className="mr-2 h-4 w-4" />
                       Download
                     </Button>
-                    <Button
+                    {/* <Button
                       onClick={shareToWhatsApp}
                       variant="outline"
                       className="flex-1"
                     >
                       <MessageCircle className="mr-2 h-4 w-4" />
                       WhatsApp
-                    </Button>
+                    </Button> */}
                   </div>
                 </div>
               ) : (
@@ -220,7 +213,7 @@ export default function ProductImageGenerator({
           </Card>
 
           {/* Actions */}
-          {/* <Card>
+          <Card>
             <CardHeader>
               <CardTitle>Share Your Product</CardTitle>
             </CardHeader>
@@ -279,17 +272,27 @@ export default function ProductImageGenerator({
                 </Button>
               </div>
             </CardContent>
-          </Card> */}
+          </Card>
         </div>
 
         {/* Hidden canvas for image generation */}
         <div className="fixed -left-[9999px] -top-[9999px] p-5">
           <div
             ref={canvasRef}
-            className="w-auto h-auto relative overflow-hidden"
-            style={{ fontFamily: "Inter, sans-serif" }}
+            className="w-auto relative overflow-visible"
+            style={{
+              fontFamily: "Inter, sans-serif",
+              transform: 'scale(1)',
+              transformOrigin: 'top left',
+              objectFit: 'contain',
+              width: '600px',
+              minWidth: '600px',
+              maxWidth: '600px',
+              // zoom: 1
+            }}
           >
             {/* Product Image */}
+ 
             <div className="relative h-auto overflow-hidden">
               <img
                 src={image}
@@ -298,27 +301,29 @@ export default function ProductImageGenerator({
                 crossOrigin="anonymous"
               />
 
-              <div className="absolute top-4 right-4 z-130">
-                <img
-                  src={productData.logo}
-                  alt="Company Logo"
-                  className="w-12 h-12 object-contain bg-white/90 rounded-lg p-1"
-                  crossOrigin="anonymous"
-                />
-              </div>
+              {productData.logo && (
+                <div className="absolute top-4 right-4 z-130">
+                  <img
+                    src={productData.logo}
+                    alt="Company Logo"
+                    className="w-auto h-24 object-contain bg-white/90 rounded-lg p-1"
+                    crossOrigin="anonymous"
+                  />
+                </div>
+              )}
               {/* Gradient overlay */}
               <div className="absolute inset-0 bg-gradient-to-t from-black via-transparent to-transparent" />
 
-              <div className="absolute bottom-4 left-4 z-130 span-4">
-                <h2 className="font-bold text-3xl text-white">
-                  {productData.currency} {productData.price}
-                </h2>
+              <div className="absolute bottom-4 left-4 right-4 z-130 space-y-2">
+                <div className="font-black text-5xl md:text-5xl text-white leading-none mb-5">
+                  {productData.currency} {Number(productData.price).toLocaleString()}
+                </div>
 
-                <h2 className="text-md font-semibold text-white leading-tight py-2">
+                <h2 className="text-xl md:text-4xl font-bold text-white leading-tight">
                   {productData.name}
                 </h2>
 
-                <p className="text-sm font-normal text-white pb-5">
+                <p className="text-base md:text-lg font-normal tracking-wide text-white">
                   {productData.description}
                 </p>
               </div>
@@ -328,7 +333,7 @@ export default function ProductImageGenerator({
             <div className="p-4 space-y-3">
               <div className="pt-2 border-t border-gray-200">
                 <p className="text-xs text-gray-500 text-center">
-                  `` Created with Sella • Tag It. Share It. Sell It.
+                Created with Sella • Tag It. Share It. Sell It.
                 </p>
               </div>
             </div>
