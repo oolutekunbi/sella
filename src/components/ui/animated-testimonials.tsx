@@ -80,16 +80,12 @@ export const AnimatedTestimonials = ({
                   }}
                   className="absolute inset-0 origin-bottom"
                 >
-                  <image
-                    href={testimonial.src}
-                    width="100%"
-                    height="100%"
-                    preserveAspectRatio="xMidYMid slice"
-                    style={{
-                      borderRadius: '1rem',
-                    }}
-                    role="img"
-                    aria-label={testimonial.name}
+                  <Image
+                    src={testimonial.src}
+                    alt={testimonial.name}
+                    fill
+                    className="rounded-xl object-cover object-center pointer-events-none"
+                    sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
                   />
                 </motion.div>
               ))}
