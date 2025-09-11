@@ -68,13 +68,25 @@ const PricingComponent = () => {
     }
   ];
 
-  const getPrice = (plan: { name?: string; icon?: React.JSX.Element; description?: string; monthlyPrice: any; annualPrice: any; popular?: boolean; features?: string[]; buttonText?: string; color?: string; }) => {
+  interface PricingPlan {
+    name?: string;
+    icon?: React.JSX.Element;
+    description?: string;
+    monthlyPrice: number | string;
+    annualPrice: number | string;
+    popular?: boolean;
+    features?: string[];
+    buttonText?: string;
+    color?: string;
+  }
+
+  const getPrice = (plan: PricingPlan) => {
     return isAnnual ? plan.annualPrice : plan.monthlyPrice;
   };
 
-  const getSavings = (plan: { name?: string; icon?: React.JSX.Element; description?: string; monthlyPrice: any; annualPrice: any; popular?: boolean; features?: string[]; buttonText?: string; color?: string; }) => {
-    const monthlyCost = plan.monthlyPrice * 12;
-    const annualCost = plan.annualPrice;
+  const getSavings = (plan: PricingPlan) => {
+    const monthlyCost = Number(plan.monthlyPrice) * 12;
+    const annualCost = Number(plan.annualPrice);
     return Math.round(((monthlyCost - annualCost) / monthlyCost) * 100);
   };
 

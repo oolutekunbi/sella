@@ -1,5 +1,4 @@
 import React from 'react';
-import { Music, Dribbble, Home, Settings, Clock, TrendingUp, Zap, Package, MapPin } from 'lucide-react';
 import slide1 from "../../assets/images/Dress.png";
 import slide2 from "../../assets/images/iphone 15.png";
 import slide3 from "../../assets/images/Group 39.png";
