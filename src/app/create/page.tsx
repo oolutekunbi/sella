@@ -555,7 +555,7 @@ export default function CreateProductPage() {
           price: finalProductData.price,
           currency: finalProductData.currency,
           description: finalProductData.description,
-          category: finalProductData.category,
+          // category: finalProductData.category,
           paymentMethods: finalProductData.paymentMethods,
           logo: finalProductData.logo,
           contactInfo: finalProductData.contactInfo,

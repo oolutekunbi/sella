@@ -20,7 +20,7 @@ interface ProductData {
   price: string
   currency: string
   description: string
-  category: string
+  // category: string
   paymentMethods: string[]
   logo?: string
   contactInfo: {
@@ -95,7 +95,7 @@ export default function BatchProductCreator() {
       price: '',
       currency: 'GHS',
       description: '',
-      category: '',
+      // category: '',
       paymentMethods: ['momo'],
       logo: '',
       contactInfo: {
@@ -120,7 +120,7 @@ export default function BatchProductCreator() {
           price: '',
           currency: defaultTemplate.currency || 'GHS',
           description: '',
-          category: '',
+          // category: '',
           paymentMethods: defaultTemplate.paymentMethods || ['momo'],
           logo: defaultTemplate.logo || '',
           contactInfo: defaultTemplate.contactInfo || { phone: '', whatsapp: '', instagram: '' }
@@ -142,7 +142,7 @@ export default function BatchProductCreator() {
       price: product.price,
       currency: product.currency,
       description: product.description,
-      category: product.category,
+      // category: product.category,
       paymentMethods: product.paymentMethods,
       logo: product.logo || '',
       contactInfo: product.contactInfo,
@@ -466,7 +466,7 @@ export default function BatchProductCreator() {
                       )}
                     />
 
-                    <FormField
+                    {/* <FormField
                       control={form.control}
                       name="category"
                       render={({ field }) => (
@@ -483,7 +483,7 @@ export default function BatchProductCreator() {
                           <FormMessage />
                         </FormItem>
                       )}
-                    />
+                    /> */}
                   </div>
 
                   <FormField

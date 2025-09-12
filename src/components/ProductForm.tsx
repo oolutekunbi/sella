@@ -242,7 +242,7 @@ export default function ProductForm({ onSubmit, onBack }: ProductFormProps) {
             {/* Step 2: Product Details */}
             {currentStep === 2 && (
               <>
-                <FormField
+                {/* <FormField
                   control={form.control}
                   name="category"
                   render={({ field }) => (
@@ -264,7 +264,7 @@ export default function ProductForm({ onSubmit, onBack }: ProductFormProps) {
                       <FormMessage />
                     </FormItem>
                   )}
-                />
+                /> */}
 
                 <FormField
                   control={form.control}

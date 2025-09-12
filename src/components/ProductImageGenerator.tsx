@@ -17,7 +17,7 @@ interface ProductData {
   price: string;
   currency: string;
   description: string;
-  category: string;
+  // category: string;
   paymentMethods: string[];
   logo?: string;
   contactInfo: {
@@ -247,9 +247,9 @@ export default function ProductImageGenerator({
                     <strong>Price:</strong> {productData.currency}{" "}
                     {productData.price}
                   </p>
-                  <p>
+                  {/* <p>
                     <strong>Category:</strong> {productData.category}
-                  </p>
+                  </p> */}
                   <p>
                     <strong>Payment:</strong>{" "}
                     {productData.paymentMethods
