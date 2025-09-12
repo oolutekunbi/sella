@@ -16,7 +16,6 @@ const productSchema = z.object({
   price: z.string().min(1, 'Price is required'),
   currency: z.string().min(1, 'Currency is required'),
   description: z.string().min(10, 'Description must be at least 10 characters'),
-  category: z.string().min(1, 'Category is required'),
   paymentMethods: z.array(z.string()).min(1, 'At least one payment method is required'),
   logo: z.string().optional(),
   contactInfo: z.object({
@@ -40,17 +39,7 @@ const paymentOptions = [
   { id: 'card', label: 'Credit/Debit Card', icon: '💳' },
 ]
 
-const categories = [
-  'Fashion & Clothing',
-  'Beauty & Cosmetics',
-  'Electronics',
-  'Home & Garden',
-  'Food & Beverages',
-  'Handmade & Crafts',
-  'Sports & Fitness',
-  'Books & Education',
-  'Other'
-]
+
 
 export default function ProductForm({ onSubmit, onBack }: ProductFormProps) {
   const [selectedPayments, setSelectedPayments] = useState<string[]>(['momo'])
@@ -65,7 +54,6 @@ export default function ProductForm({ onSubmit, onBack }: ProductFormProps) {
       price: '',
       currency: 'GHS',
       description: '',
-      category: '',
       paymentMethods: ['momo'],
       logo: '',
       contactInfo: {
@@ -117,7 +105,7 @@ export default function ProductForm({ onSubmit, onBack }: ProductFormProps) {
         fieldsToValidate = ['name', 'price', 'currency']
         break
       case 2:
-        fieldsToValidate = ['category', 'description']
+        fieldsToValidate = [ 'description']
         break
       case 3:
         // No required fields in step 3 (logo is optional)
@@ -242,29 +230,6 @@ export default function ProductForm({ onSubmit, onBack }: ProductFormProps) {
             {/* Step 2: Product Details */}
             {currentStep === 2 && (
               <>
-                {/* <FormField
-                  control={form.control}
-                  name="category"
-                  render={({ field }) => (
-                    <FormItem>
-                      <FormLabel>Category *</FormLabel>
-                      <FormControl>
-                        <select 
-                          className="flex h-10 w-full rounded-md border border-input bg-background px-3 py-2 text-sm ring-offset-background focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2"
-                          {...field}
-                        >
-                          <option value="">Select a category</option>
-                          {categories.map((category) => (
-                            <option key={category} value={category}>
-                              {category}
-                            </option>
-                          ))}
-                        </select>
-                      </FormControl>
-                      <FormMessage />
-                    </FormItem>
-                  )}
-                /> */}
 
                 <FormField
                   control={form.control}

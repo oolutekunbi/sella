@@ -1,15 +1,16 @@
 "use client";
 
 import Navbar from "../header";
-import React from "react";
-import Image from "next/image";
+import React, { useState, useEffect } from 'react';
+import Image from 'next/image';
+import Link from 'next/link';
 import slide1 from "../../assets/images/Dress.png";
 import slide2 from "../../assets/images/hair.png";
 import slide3 from "../../assets/images/bag.png";
 
 export default function HeroSection() {
   const images = [slide1, slide2, slide3];
-  const [index, setIndex] = React.useState(0);
+  const [index, setIndex] = useState(0);
 
   React.useEffect(() => {
     const id = setInterval(() => {
@@ -19,14 +20,14 @@ export default function HeroSection() {
   }, [images.length]);
 
   return (
-    <section id="hero" className="py-10 h-[100vh] z-0 ">
-      <div className="bg-[#A9968D] mx-20 h-[90vh] px-4 lg:px-8 rounded-4xl flex flex-col justify-between">
+    <section id="hero" className="lg:py-10 h-[100vh]">
+      <div className="bg-[#A9968D] lg:mx-20 h-[90vh] px-4 lg:px-8 rounded-4xl flex flex-col justify-between">
         <header>
           <Navbar />
         </header>
         <div id="heroText" className="flex flex-col lg:flex-row justify-between  px-4 lg:px-12 pb-16">         
           <div className="flex-1">
-            <h1 className="text-4xl lg:text-9xl font-black mb-6 text-[#EBFFEE]">
+            <h1 className="text-7xl lg:text-9xl font-black lg:mb-6 text-[#EBFFEE]">
               Tag It.<br></br>
               Share It. <br></br>
               Sell It.
@@ -36,13 +37,15 @@ export default function HeroSection() {
               directly onto your photo — ready for WhatsApp, Instagram, or
               TikTok.
             </p>
-            <button className="h-12 px-6 xl:px-8 rounded-2xl font-semibold text-white border border-light-50 hover:bg-[black] hover:border-0 transition-all duration-300 transform hover:scale-105 hover:shadow-lg text-sm xl:text-base">
-              Try it free Now
-            </button>
+            <Link href="/auth/login">
+              <button className="h-12 z-0 px-6 xl:px-8 rounded-2xl font-semibold text-white border border-light-50 hover:bg-[black] hover:border-0 transition-all duration-300 transform hover:scale-105 hover:shadow-lg text-sm xl:text-base">
+                Try it free Now
+              </button>
+            </Link>
           </div>
 
           <div className="flex-1">
-            <div className="relative w-full aspect-[5/4] rounded-3xl overflow-visible">
+            <div className="relative w-full aspect-[5/4] rounded-3xl overflow-visible hidden">
               {images.map((src, i) => (
                 <Image
                   key={i}

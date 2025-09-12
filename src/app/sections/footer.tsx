@@ -11,8 +11,7 @@ const Footer = () => {
       { name: "Features", href: "#features" },
       { name: "Pricing", href: "#pricing" },
       { name: "How it Works", href: "#how" },
-      { name: "Templates", href: "#templates" },
-      { name: "Integrations", href: "#integrations" }
+      
     ],
     company: [
       { name: "About Us", href: "#about" },
@@ -21,13 +20,7 @@ const Footer = () => {
       { name: "Blog", href: "#blog" },
       { name: "Contact", href: "#contact" }
     ],
-    support: [
-      { name: "Help Center", href: "#help" },
-      { name: "Documentation", href: "#docs" },
-      { name: "API Reference", href: "#api" },
-      { name: "Community", href: "#community" },
-      { name: "Status", href: "#status" }
-    ],
+   
     legal: [
       { name: "Privacy Policy", href: "#privacy" },
       { name: "Terms of Service", href: "#terms" },
@@ -47,7 +40,7 @@ const Footer = () => {
     <footer className="bg-[#151515] text-white">
       {/* Main Footer Content */}
       <div className="max-w-7xl mx-auto px-4 lg:px-8 py-16">
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-6 gap-8">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-8">
           
           {/* Company Info */}
           <div className="lg:col-span-2">
@@ -71,11 +64,11 @@ const Footer = () => {
               </div>
               <div className="flex items-center space-x-3">
                 <Phone className="w-4 h-4 text-[#A9968D]" />
-                <span className="text-gray-300 text-sm">+1 (555) 123-4567</span>
+                <span className="text-gray-300 text-sm">+233 244 666 666</span>
               </div>
               <div className="flex items-center space-x-3">
                 <MapPin className="w-4 h-4 text-[#A9968D]" />
-                <span className="text-gray-300 text-sm">San Francisco, CA</span>
+                <span className="text-gray-300 text-sm">Ghana</span>
               </div>
             </div>
           </div>
@@ -115,7 +108,7 @@ const Footer = () => {
           </div>
 
           {/* Support Links */}
-          <div>
+          {/* <div>
             <h3 className="font-semibold text-white mb-4">Support</h3>
             <ul className="space-y-3">
               {footerLinks.support.map((link) => (
@@ -129,7 +122,7 @@ const Footer = () => {
                 </li>
               ))}
             </ul>
-          </div>
+          </div> */}
 
           {/* Legal Links */}
           <div>
@@ -198,14 +191,14 @@ const Footer = () => {
             </div>
 
             {/* Additional Links */}
-            <div className="flex space-x-6 text-sm">
+            {/* <div className="flex space-x-6 text-sm">
               <a href="#sitemap" className="text-gray-400 hover:text-[#A9968D] transition-colors duration-200">
                 Sitemap
               </a>
               <a href="#accessibility" className="text-gray-400 hover:text-[#A9968D] transition-colors duration-200">
                 Accessibility
               </a>
-            </div>
+            </div> */}
           </div>
         </div>
       </div>

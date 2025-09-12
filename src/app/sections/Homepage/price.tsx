@@ -15,12 +15,12 @@ const PricingComponent = () => {
       annualPrice: 90,
       popular: false,
       features: [
-        "Up to 5 projects",
-        "10GB storage",
-        "Basic analytics",
-        "Email support",
-        "Mobile app access",
-        "Standard templates"
+        "Lorem ipsum dolor sit amet",
+        "Lorem ipsum dolor sit amet",
+        "Lorem ipsum dolor sit amet",
+        "Lorem ipsum dolor sit amet",
+        "Lorem ipsum dolor sit amet",
+        "Lorem ipsum dolor sit amet"
       ],
       buttonText: "Get Started",
       color: "from-blue-500 to-cyan-500"
@@ -33,14 +33,15 @@ const PricingComponent = () => {
       annualPrice: 290,
       popular: true,
       features: [
-        "Unlimited projects",
-        "100GB storage",
-        "Advanced analytics",
-        "Priority support",
-        "Team collaboration",
-        "Custom templates",
-        "API access",
-        "Advanced integrations"
+        "Lorem ipsum dolor sit amet",
+        "Lorem ipsum dolor sit amet",
+        "Lorem ipsum dolor sit amet",
+        "Lorem ipsum dolor sit amet",
+        "Lorem ipsum dolor sit amet",
+        "Lorem ipsum dolor sit amet",
+        "Lorem ipsum dolor sit amet",
+        "Lorem ipsum dolor sit amet",
+        "Lorem ipsum dolor sit amet"
       ],
       buttonText: "Start Free Trial",
       color: "from-purple-500 to-pink-500"
@@ -53,15 +54,13 @@ const PricingComponent = () => {
       annualPrice: 990,
       popular: false,
       features: [
-        "Everything in Professional",
-        "Unlimited storage",
-        "Custom analytics",
-        "24/7 phone support",
-        "Advanced security",
-        "Custom integrations",
-        "Dedicated account manager",
-        "White-label solution",
-        "SLA guarantee"
+        "Lorem ipsum dolor sit amet",
+        "Lorem ipsum dolor sit amet",
+        "Lorem ipsum dolor sit amet",
+        "Lorem ipsum dolor sit amet",
+        "Lorem ipsum dolor sit amet",
+        "Lorem ipsum dolor sit amet",
+       
       ],
       buttonText: "Contact Sales",
       color: "from-orange-500 to-red-500"
@@ -91,14 +90,11 @@ const PricingComponent = () => {
   };
 
   return (
-    <div className="min-h-screen py-20 px-4">
+    <div className="min-h-screen py-10 px-4">
       <div className="max-w-7xl mx-auto">
         {/* Header Section */}
         <div className="text-center mb-16">
-          <div className="inline-flex items-center px-4 py-2 bg-[#A9968D] rounded-full text-[#ebfeee] text-sm font-medium mb-6">
-            <Shield className="w-4 h-4 mr-2" />
-            Trusted by 10,000+ companies worldwide
-          </div>
+       
           
           <h1 className="text-5xl md:text-7xl font-bold text-black mb-6 leading-tighter">
             Choose Your Perfect Plan
@@ -139,14 +135,14 @@ const PricingComponent = () => {
               {/* Popular Badge */}
               {plan.popular && (
                 <div className="absolute -top-4 left-1/2 transform -translate-x-1/2">
-                  <div className="bg-gradient-to-r from-purple-500 to-pink-500 text-white px-6 py-2 rounded-full text-sm font-semibold">
+                  <div className="bg-[#b36744] text-white px-6 py-2 rounded-full text-sm font-semibold">
                     Most Popular
                   </div>
                 </div>
               )}
 
               {/* Plan Icon */}
-              <div className={`inline-flex p-3 rounded-2xl bg-gradient-to-r ${plan.color} text-white mb-6`}>
+              <div className={`inline-flex p-3 rounded-2xl  text-white mb-6`}>
                 {plan.icon}
               </div>
 
@@ -170,7 +166,7 @@ const PricingComponent = () => {
               {/* CTA Button */}
               <button className={`w-full py-4 px-6 rounded-2xl font-semibold text-black mb-8 transition-all duration-300 transform hover:scale-105 ${
                 plan.popular 
-                  ? 'bg-[#F7EBD2] hover:shadow-xl hover:shadow-purple-500/25' 
+                  ? 'bg-[#F7EBD2] hover:shadow-xl hover:shadow-black-500/25' 
                   : 'bg-white hover:bg-white-600'
               }`}>
                 {plan.buttonText}

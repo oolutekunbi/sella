@@ -567,9 +567,16 @@ export default function CreateProductPage() {
   }
 
   return (
-    <div className="min-h-screen bg-gray-50 py-8 px-4">
-      <div className="max-w-2xl mx-auto">
-        {/* Header */}
+    <div className="container mx-auto px-4 py-8">
+      <div className="max-w-4xl mx-auto">
+        <Button 
+          variant="ghost" 
+          onClick={() => router.push('/dashboard')} 
+          className="mb-4 flex items-center gap-2 text-gray-600 hover:text-gray-900"
+        >
+          <ArrowLeft className="h-4 w-4" />
+          Back to Dashboard
+        </Button>
         <div className="text-center mb-8">
           <h1 className="text-3xl font-bold text-gray-900 mb-2">Create Product Tag</h1>
           <p className="text-gray-600">Follow the steps to create your product tag</p>

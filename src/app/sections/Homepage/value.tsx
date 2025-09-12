@@ -7,13 +7,16 @@ import Image from "next/image";
 
 const BentoGrid = () => {
   return (
-    <div className="">
-      <div className="max-w-7xl mx-auto align-middle items-center flex flex-col">
 
-      <h2 className="text-7xl font-bold tracking-tight mb-6">Built for Ghanaian Sellers</h2>
-            <p className="text-neutral-700 dark:text-neutral-300 text-sm md:text-base max-w-lg text-center pb-7">
-            Whether you sell wigs, meals, beauty products, or secondhand clothes, Sella helps you:
-              </p>
+    <div className="py-10 w-full flex flex-col items-center">
+    <div className="max-w-4xl w-full px-2 text-center">
+        <h2 className="text-5xl md:text-7xl font-bold tracking-tight mb-6">Built for Ghanaian Sellers</h2>
+        <p className="text-neutral-700 text-sm md:text-base max-w-2xl mx-auto mb-12">
+        Whether you sell wigs, meals, beauty products, or secondhand clothes, Sella helps you:
+        </p>
+
+
+    
 
         {/* Grid Container */}
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 h-full">
@@ -68,12 +71,14 @@ const BentoGrid = () => {
            
             </div>
 
+            
+
             {/* Right Phone Mockup */}
-            <div className="lg:w-1/2 flex justify-center">
+            <div className="w-[100%] h-auto lg:w-1/2 flex justify-center">
 
            <Image src={slide2} alt="" 
      
-           className="object-cover  w-[40%] h-[20%]"
+           className="object-cover  w-[40%] h-[100%] lg:w-[40%] lg:h-[20%]"
 
            />
             

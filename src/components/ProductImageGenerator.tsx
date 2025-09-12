@@ -57,10 +57,10 @@ export default function ProductImageGenerator({
   const canvasRef = useRef<HTMLDivElement>(null);
   const [generatedImage, setGeneratedImage] = useState<string | null>(null);
   const [isGenerating, setIsGenerating] = useState(false);
+  const [isSaving, setIsSaving] = useState(false);
 
   const generateImage = async () => {
     if (!canvasRef.current) return;
-
     setIsGenerating(true);
     try {
       const canvas = await html2canvas(canvasRef.current, {
@@ -69,10 +69,12 @@ export default function ProductImageGenerator({
         useCORS: true,
         allowTaint: true,
       });
-
+  
       const imageUrl = canvas.toDataURL("image/png", 0.9);
       setGeneratedImage(imageUrl);
-      // Don't call onSave automatically - only when user explicitly saves
+      
+      // Auto-save the image when generated
+      await saveToLocalStorage(imageUrl);
     } catch (error) {
       console.error("Error generating image:", error);
     } finally {
@@ -80,18 +82,78 @@ export default function ProductImageGenerator({
     }
   };
 
-  const downloadImage = () => {
+  const downloadImage = async () => {
     if (!generatedImage) return;
-
-    const link = document.createElement("a");
-    link.download = `${productData.name.replace(/\s+/g, "_")}_product_tag.png`;
-    link.href = generatedImage;
-    link.click();
+    
+    setIsSaving(true);
+    try {
+      // Save to localStorage
+      await saveToLocalStorage(generatedImage);
+      
+      // Trigger download
+      const link = document.createElement("a");
+      link.download = `${productData.name.replace(/\s+/g, "_")}_product_tag.png`;
+      link.href = generatedImage;
+      link.click();
+      
+      // Call onSave callback if provided
+      if (onSave) {
+        onSave(generatedImage);
+      }
+    } catch (error) {
+      console.error('Error saving image:', error);
+    } finally {
+      setIsSaving(false);
+    }
   };
 
   const handleSaveAndFinish = () => {
     if (generatedImage) {
       onSave?.(generatedImage);
+    }
+  };
+
+  const shareImage = async () => {
+    if (!generatedImage) return;
+    
+    setIsSaving(true);
+    try {
+      // Save to localStorage
+      await saveToLocalStorage(generatedImage);
+      
+      // Rest of your existing share logic...
+      if (navigator.share) {
+        try {
+          const response = await fetch(generatedImage);
+          const blob = await response.blob();
+          const file = new File(
+            [blob],
+            `${productData.name.replace(/\s+/g, "_")}_product_tag.png`,
+            { type: "image/png" }
+          );
+          await navigator.share({
+            files: [file],
+          });
+          return;
+        } catch (error) {
+          console.log("Web Share API failed, falling back to manual method");
+        }
+      }
+      
+      // Fallback for browsers without Web Share API
+      const link = document.createElement("a");
+      link.href = generatedImage;
+      link.download = `${productData.name.replace(/\s+/g, "_")}_product_tag.png`;
+      link.click();
+      
+      // Open WhatsApp web
+      setTimeout(() => {
+        window.open('https://web.whatsapp.com', '_blank');
+      }, 100);
+    } catch (error) {
+      console.error('Error sharing image:', error);
+    } finally {
+      setIsSaving(false);
     }
   };
 
@@ -141,6 +203,22 @@ export default function ProductImageGenerator({
     alert("Save the image and share it manually on Instagram!");
   };
 
+  const saveToLocalStorage = async (imageUrl: string) => {
+    try {
+      const productKey = `product_${Date.now()}`;
+      const productToSave = {
+        ...productData,
+        imageUrl,
+        timestamp: Date.now(),
+      };
+      localStorage.setItem(productKey, JSON.stringify(productToSave));
+      return productKey;
+    } catch (error) {
+      console.error('Error saving to localStorage:', error);
+      return null;
+    }
+  };
+
   useEffect(() => {
     // Auto-generate image when component mounts
     const timer = setTimeout(() => {
@@ -149,6 +227,8 @@ export default function ProductImageGenerator({
 
     return () => clearTimeout(timer);
   }, []);
+
+
 
   return (
     <div className="min-h-screen bg-gray-50 py-8 px-4">

@@ -7,6 +7,7 @@ import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/com
 import { authService } from '@/lib/auth'
 import { User } from '@supabase/supabase-js'
 import { Loader2, LogOut } from 'lucide-react'
+import { CachedImages } from '@/components/CachedImages'
 
 export default function DashboardPage() {
   const [user, setUser] = useState<User | null>(null)
@@ -57,7 +58,7 @@ export default function DashboardPage() {
         <div className="flex justify-between items-center mb-8">
           <div>
             <h1 className="text-3xl font-bold text-gray-900">Dashboard</h1>
-            <p className="text-gray-600">Welcome back, {user?.email}</p>
+            <p className="text-gray-600">Welcome back, {user?.user_metadata?.full_name}</p>
           </div>
           <Button onClick={handleSignOut} variant="outline">
             <LogOut className="mr-2 h-4 w-4" />
@@ -65,22 +66,8 @@ export default function DashboardPage() {
           </Button>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-          <Card>
-            <CardHeader>
-              <CardTitle>Profile</CardTitle>
-              <CardDescription>Manage your account settings</CardDescription>
-            </CardHeader>
-            <CardContent>
-              <div className="space-y-2">
-                <p className="text-sm"><strong>Email:</strong> {user?.email}</p>
-                <p className="text-sm"><strong>User ID:</strong> {user?.id}</p>
-                <p className="text-sm"><strong>Created:</strong> {new Date(user?.created_at || '').toLocaleDateString()}</p>
-              </div>
-            </CardContent>
-          </Card>
-
-          <Card>
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-6">
+        <Card>
             <CardHeader>
               <CardTitle>Quick Actions</CardTitle>
               <CardDescription>Get started with Sella</CardDescription>
@@ -93,27 +80,48 @@ export default function DashboardPage() {
                 >
                   Create Product Tag
                 </Button>
-                <Button className="w-full" variant="outline">
-                  View Gallery
-                </Button>
-                <Button className="w-full" variant="outline">
-                  My Products
+                <Button 
+                  className="w-full bg-white border hover:bg-[#8a7a6f] text-black hover:text-white" 
+                  onClick={() => router.push('/batch')}
+                >
+                  Create Batch Product Tag
                 </Button>
               </div>
             </CardContent>
           </Card>
-
+         
           <Card>
             <CardHeader>
-              <CardTitle>Recent Activity</CardTitle>
-              <CardDescription>Your latest actions</CardDescription>
+              <CardTitle>Profile</CardTitle>
+              <CardDescription>Manage your account settings</CardDescription>
             </CardHeader>
             <CardContent>
-              <p className="text-sm text-gray-500">No recent activity</p>
+              <div className="space-y-2">
+                <p className="text-sm"><strong>Email:</strong> {user?.email}</p>
+             
+                <p className="text-sm"><strong>Created:</strong> {new Date(user?.created_at || '').toLocaleDateString()}</p>
+              </div>
             </CardContent>
           </Card>
+
+       
+
+          
         </div>
+
+     <div className="mt-8">
+      <Card>
+  <CardHeader>
+    <CardTitle>Your Product Images</CardTitle>
+    <CardDescription>All your saved product images</CardDescription>
+  </CardHeader>
+  <CardContent>
+    <CachedImages />
+  </CardContent>
+</Card>
+</div>  
       </div>
+    
     </div>
   )
 }

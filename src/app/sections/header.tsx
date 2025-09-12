@@ -11,8 +11,8 @@ import { User } from "@supabase/supabase-js";
 const navLinks = [
     { name: "Home", href: "#hero" },
     { name: "About", href: "#value" },
-    { name: "Why Move", href: "#whymore" },
-    { name: "FAQs", href: "#faqs" }
+    { name: "Why Sella", href: "#whymore" },
+    { name: "Pricing", href: "#faqs" }
 ];
 
 export default function Navbar() {
@@ -133,9 +133,9 @@ export default function Navbar() {
                 </div>
 
 
-                <div className={`lg:hidden fixed inset-0 top-16 bg-white/95 backdrop-blur-xl transition-all duration-500 ${isMobileMenuOpen
+                <div className={`lg:hidden fixed inset-0 top-20 bg-white/95 backdrop-blur-xl transition-all z-[9999] duration-500 ${isMobileMenuOpen
                         ? 'opacity-100 visible'
-                        : 'opacity-0 invisible'
+                        : 'opacity-0 invisible pointer-events-none'
                     }`}>
                     <div className="container mx-auto px-4 py-8">
                         <nav className="flex flex-col gap-6">

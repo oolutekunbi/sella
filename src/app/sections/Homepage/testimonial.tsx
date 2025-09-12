@@ -42,7 +42,7 @@ export function AnimatedTestimonialsDemo() {
   
   return (
     <div className="flex flex-col items-center py-20">
-        <h2 className="text-7xl font-bold tracking-tight mb-6">Testimonials</h2>
+        <h2 className="text-5xl md:text-7xl font-bold tracking-tight mb-6">Testimonials</h2>
         <p className="text-neutral-700 dark:text-neutral-300 text-sm md:text-base max-w-lg text-center pb-20">
             Our clients have had nothing but positive experiences with Sella. Here&apos;s what they have to say:
             
