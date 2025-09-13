@@ -24,7 +24,7 @@ export default function How() {
   ];
 
     return (
-        <div className="py-10 w-full flex flex-col items-center">
+        <div className="py-10 container max-w-7xl lg:px-8 flex flex-col items-center">
             <div className="max-w-4xl w-full px-4 text-center">
                 <h2 className="text-5xl md:text-7xl font-bold tracking-tight mb-6">How it works</h2>
                 <p className="text-neutral-700 text-sm md:text-base max-w-2xl mx-auto mb-12">
@@ -53,7 +53,7 @@ export default function How() {
                   {step.number}
                 </div>
 
-                <div className="hidden md:block  absolute top-[153px] left-0 w-4 h-4 bg-[#9B4A2C] rounded-full z-10 sm:hidden"></div>
+                <div className="hidden md:block  absolute top-[120px] left-0 w-4 h-4 bg-[#9B4A2C] rounded-full z-10 sm:hidden"></div>
 
               
                 

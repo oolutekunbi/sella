@@ -9,7 +9,7 @@ const BentoGrid = () => {
   return (
 
     <div className="py-10 w-full flex flex-col items-center">
-    <div className="max-w-4xl w-full px-2 text-center">
+    <div className="max-w-7xl w-full px-2 text-center">
         <h2 className="text-5xl md:text-7xl font-bold tracking-tight mb-6">Built for Ghanaian Sellers</h2>
         <p className="text-neutral-700 text-sm md:text-base max-w-2xl mx-auto mb-12">
         Whether you sell wigs, meals, beauty products, or secondhand clothes, Sella helps you:
