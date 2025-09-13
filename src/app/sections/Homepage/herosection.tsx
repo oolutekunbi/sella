@@ -45,7 +45,7 @@ export default function HeroSection() {
           </div>
 
           <div className="flex-1">
-            <div className="relative w-full aspect-[5/4] rounded-3xl overflow-visible hidden">
+            <div className="hidden lg:block relative w-full aspect-[5/4] rounded-3xl overflow-visible">
               {images.map((src, i) => (
                 <Image
                   key={i}
