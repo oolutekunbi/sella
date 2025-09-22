@@ -53,7 +53,6 @@ export default function SignupPage() {
         setError(error.message)
       } else if (user) {
         setSuccess('Account created successfully! Please check your email to verify your account.')
-        // Optionally redirect to login or dashboard
         setTimeout(() => {
           router.push('/auth/login')
         }, 3000)
@@ -75,7 +74,6 @@ export default function SignupPage() {
         setError(error.message)
         setIsGoogleLoading(false)
       }
-      // If successful, user will be redirected by Supabase
     } catch (err) {
       setError('Failed to sign up with Google')
       setIsGoogleLoading(false)

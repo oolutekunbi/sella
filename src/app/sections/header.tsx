@@ -28,7 +28,7 @@ export default function Navbar() {
 
         getUser();
 
-        // Listen for auth changes
+       
         const { data: { subscription } } = authService.onAuthStateChange((user) => {
             setUser(user);
         });

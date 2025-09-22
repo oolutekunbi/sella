@@ -92,7 +92,6 @@ const PricingComponent = () => {
   return (
     <div className="min-h-screen py-10 px-4">
       <div className="max-w-7xl mx-auto">
-        {/* Header Section */}
         <div className="text-center mb-16">
        
           
@@ -105,7 +104,6 @@ const PricingComponent = () => {
             Start free and scale as you grow. No hidden fees, no vendor lock-in.
           </p>
 
-          {/* Billing Toggle */}
           <div className="flex items-center justify-center space-x-4 bg-[#a9968d] backdrop-blur-sm rounded-2xl p-2 w-fit mx-auto">
             <span className={`px-6 py-3 rounded-xl transition-all duration-300 ${!isAnnual ? 'bg-white text-gray-900 shadow-lg' : 'text-white'}`}>
               Monthly
@@ -123,7 +121,6 @@ const PricingComponent = () => {
           </div>
         </div>
 
-        {/* Pricing Cards */}
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-6xl mx-auto">
           {plans.map((plan, index) => (
             <div
@@ -132,7 +129,6 @@ const PricingComponent = () => {
                 plan.popular ? 'ring-2 shadow-2xl shadow-purple-500/20' : ''
               }`}
             >
-              {/* Popular Badge */}
               {plan.popular && (
                 <div className="absolute -top-4 left-1/2 transform -translate-x-1/2">
                   <div className="bg-[#b36744] text-white px-6 py-2 rounded-full text-sm font-semibold">
@@ -141,17 +137,13 @@ const PricingComponent = () => {
                 </div>
               )}
 
-              {/* Plan Icon */}
               <div className={`inline-flex p-3 rounded-2xl  text-white mb-6`}>
                 {plan.icon}
               </div>
-
-              {/* Plan Name & Description */}
               <h3 className="text-2xl font-bold text-white mb-2">{plan.name}</h3>
               <p className="text-gray-300 mb-8">{plan.description}</p>
 
-              {/* Pricing */}
-              <div className="mb-8">
+                  <div className="mb-8">
                 <div className="flex items-baseline">
                   <span className="text-5xl font-bold text-white">${getPrice(plan)}</span>
                   <span className="text-gray-400 ml-2">/{isAnnual ? 'year' : 'month'}</span>
@@ -163,7 +155,6 @@ const PricingComponent = () => {
                 )}
               </div>
 
-              {/* CTA Button */}
               <button className={`w-full py-4 px-6 rounded-2xl font-semibold text-black mb-8 transition-all duration-300 transform hover:scale-105 ${
                 plan.popular 
                   ? 'bg-[#F7EBD2] hover:shadow-xl hover:shadow-black-500/25' 
@@ -172,7 +163,6 @@ const PricingComponent = () => {
                 {plan.buttonText}
               </button>
 
-              {/* Features List */}
               <div className="space-y-4">
                 <h4 className="font-semibold text-white mb-4">Everything included:</h4>
                 {plan.features.map((feature, featureIndex) => (
@@ -188,7 +178,6 @@ const PricingComponent = () => {
           ))}
         </div>
 
-        {/* Bottom CTA Section */}
         <div className="text-center mt-20">
           <div className="bg-[#A9968D] backdrop-blur-sm rounded-3xl p-12 max-w-4xl mx-auto border border-purple-500/20">
             <h3 className="text-3xl font-bold text-[#EBFFEE] mb-4">

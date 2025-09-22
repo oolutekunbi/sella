@@ -173,8 +173,7 @@ export default function CreateProductPage() {
 
   const handleSaveProduct = (generatedImage: string) => {
     console.log('Product saved with generated image:', generatedImage)
-    // Here you would save to database
-    router.push('/dashboard') // Navigate back to dashboard after user explicitly saves
+    router.push('/dashboard') 
   }
 
   const renderStepContent = () => {
@@ -545,7 +544,6 @@ export default function CreateProductPage() {
     }
   }
 
-  // Show preview if final data is ready
   if (showPreview && finalProductData) {
     return (
       <ProductImageGenerator
@@ -615,12 +613,10 @@ export default function CreateProductPage() {
           </div>
         </div>
 
-        {/* Form */}
         <Form {...form}>
           <form onSubmit={form.handleSubmit(handleFinalSubmit)} className="space-y-6">
             {renderStepContent()}
 
-            {/* Navigation Buttons */}
             <div className="flex gap-4 pt-4">
               {currentStep > 1 && (
                 <Button

@@ -64,7 +64,6 @@ export default function LoginPage() {
         setError(error.message)
         setIsGoogleLoading(false)
       }
-      // If successful, user will be redirected by Supabase
     } catch (err) {
       setError('Failed to sign in with Google')
       setIsGoogleLoading(false)

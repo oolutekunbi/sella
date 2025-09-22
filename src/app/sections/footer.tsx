@@ -38,11 +38,11 @@ const Footer = () => {
 
   return (
     <footer className="bg-[#151515] text-white">
-      {/* Main Footer Content */}
+
       <div className="max-w-7xl mx-auto px-4 lg:px-8 py-16">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-8">
           
-          {/* Company Info */}
+    
           <div className="lg:col-span-2">
             <div className="mb-6">
               <Image
@@ -56,7 +56,7 @@ const Footer = () => {
               Sella helps you add your product name, price, and payment info directly onto your photo — ready for WhatsApp, Instagram, or TikTok.
             </p>
             
-            {/* Contact Info */}
+      
             <div className="space-y-3">
               <div className="flex items-center space-x-3">
                 <Mail className="w-4 h-4 text-[#A9968D]" />
@@ -73,7 +73,7 @@ const Footer = () => {
             </div>
           </div>
 
-          {/* Product Links */}
+
           <div>
             <h3 className="font-semibold text-white mb-4">Product</h3>
             <ul className="space-y-3">
@@ -90,7 +90,7 @@ const Footer = () => {
             </ul>
           </div>
 
-          {/* Company Links */}
+ 
           <div>
             <h3 className="font-semibold text-white mb-4">Company</h3>
             <ul className="space-y-3">
@@ -107,7 +107,7 @@ const Footer = () => {
             </ul>
           </div>
 
-          {/* Support Links */}
+
           {/* <div>
             <h3 className="font-semibold text-white mb-4">Support</h3>
             <ul className="space-y-3">
@@ -124,7 +124,7 @@ const Footer = () => {
             </ul>
           </div> */}
 
-          {/* Legal Links */}
+          
           <div>
             <h3 className="font-semibold text-white mb-4">Legal</h3>
             <ul className="space-y-3">
@@ -142,7 +142,7 @@ const Footer = () => {
           </div>
         </div>
 
-        {/* Newsletter Signup */}
+
         <div className="mt-12 pt-8 border-t border-gray-700">
           <div className="max-w-md">
             <h3 className="font-semibold text-white mb-4">Stay Updated</h3>
@@ -163,17 +163,17 @@ const Footer = () => {
         </div>
       </div>
 
-      {/* Bottom Bar */}
+
       <div className="border-t border-gray-700">
         <div className="max-w-7xl mx-auto px-4 lg:px-8 py-6">
           <div className="flex flex-col md:flex-row justify-between items-center space-y-4 md:space-y-0">
             
-            {/* Copyright */}
+
             <div className="text-gray-400 text-sm">
               © {currentYear} Sella. All rights reserved.
             </div>
 
-            {/* Social Links */}
+
             <div className="flex space-x-4">
               {socialLinks.map((social) => {
                 const IconComponent = social.icon;
@@ -190,7 +190,7 @@ const Footer = () => {
               })}
             </div>
 
-            {/* Additional Links */}
+    
             {/* <div className="flex space-x-6 text-sm">
               <a href="#sitemap" className="text-gray-400 hover:text-[#A9968D] transition-colors duration-200">
                 Sitemap

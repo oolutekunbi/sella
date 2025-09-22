@@ -34,19 +34,17 @@ export default function How() {
             <div className="w-full bg-white">
      
 
-      {/* Steps Container */}
+    
       <div className="relative">
-        {/* Progress Line - Hidden on mobile, visible on md and up */}
         <div className="hidden md:block absolute top-40 left-0 right-0 h-0.5 bg-[#9B4A2C]"></div>
         <div className="hidden md:block absolute top-40 left-0 w-2/3 h-0.5 bg-[#9B4A2C]"></div>
 
-        
-        {/* Steps Grid */}
+    
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8 relative p-8 md:p-0">
           {steps.map((step, index) => (
             <div key={index} className="relative">
             
-              {/* Step Number */}
+  
               <div className="mb-1 lg:mb-8">
             
                 <div className={`text-8xl md:text-9xl font-black bg-gradient-to-r ${step.gradient} bg-clip-text text-transparent inline-block`}>
@@ -59,7 +57,7 @@ export default function How() {
                 
               </div>
 
-              {/* Step Content */}
+    
               <div className="lg:pt-8">
                 <h3 className="text-xl md:text-2xl font-bold tracking-tighter text-gray-900 lg:mb-4 lg:mb:0">
                   {step.title}
